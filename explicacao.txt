@@ -1,0 +1,30 @@
+Este código implementa uma aplicação simples usando a biblioteca Streamlit para visualizar dados de clientes a partir de um arquivo CSV chamado 'encomendas.csv'. Abaixo está uma explicação detalhada de cada parte do código:
+
+1. **Importações de Bibliotecas**:
+   - `import streamlit as st`: Importa a biblioteca Streamlit, que é usada para criar aplicações web interativas de forma fácil e rápida.
+   - `import pandas as pd`: Importa a biblioteca Pandas, que é utilizada para manipular e analisar dados, especialmente para ler arquivos CSV.
+
+2. **Leitura do Arquivo CSV**:
+   - `df = pd.read_csv('encomendas.csv')`: Lê o arquivo CSV chamado 'encomendas.csv' e armazena os dados em um DataFrame chamado `df`. Um DataFrame é uma estrutura de dados bidimensional que permite armazenar dados em formato de tabela.
+
+3. **Configuração do Título da Aplicação**:
+   - `st.title('Visualização de Clientes')`: Define o título da aplicação que será exibido na interface. Neste caso, o título é "Visualização de Clientes".
+
+4. **Loop para Criar Cards para Cada Cliente**:
+   - `for index, row in df.iterrows()`: Inicia um loop que itera sobre cada linha do DataFrame `df`. `index` representa o índice da linha, e `row` contém os dados dessa linha.
+   - `with st.container()`: Cria um contêiner para agrupar os elementos do card do cliente.
+
+5. **Exibição dos Dados do Cliente**:
+   - `st.subheader(row['cliente'])`: Exibe o nome do cliente como um subtítulo.
+   - `st.write(f'Tema: {row["tema"]}')`: Exibe o tema associado ao cliente.
+   - `st.write(f'Prazo de Entrega: {row["prazo_entrega"]}')`: Exibe o prazo de entrega para o cliente.
+   - `st.write(f'Valor: R$ {row["valor"]:.2f}')`: Exibe o valor, formatado com duas casas decimais, correspondente à entrega do cliente.
+   - `st.markdown("---")`: Insere uma linha horizontal para separar visualmente os cards dos diferentes clientes.
+
+6. **Execução do Streamlit**:
+   - `if __name__ == '__main__':`: Esta condição verifica se o arquivo está sendo executado como o programa principal.
+   - `st.write("Acesse este app em: `streamlit run app.py`")`: Exibe uma mensagem no final do aplicativo informando como executar a aplicação no terminal.
+
+Este código cria uma interface visual simples que permite ao usuário visualizar informações de clientes armazenadas em um arquivo CSV de forma organizada e interativa, utilizando a biblioteca Streamlit.
+
+Para executar a aplicação, o usuário deve ter o Streamlit instalado e executar o comando `streamlit run app.py` no terminal, onde 'app.py' é o nome do arquivo que contém este código.
